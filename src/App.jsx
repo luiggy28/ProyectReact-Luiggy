@@ -1,6 +1,7 @@
-import './App.css'
+/* import './App.css' */
+import './components/styles/styles.scss'
 import Navbar from './components/Navbar/Navbar'
-import { Productos }  from './components/productos/Productos'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Productos /> */}
+      {/* <ItemListContainer /> */}
     </>
   )
 }
