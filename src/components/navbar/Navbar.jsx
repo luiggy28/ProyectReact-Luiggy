@@ -1,5 +1,6 @@
 import logo from '../../assets/Logo_Final.png'
 import carrito from '../../assets/Carrito_ok.png'
+import lista from '../../assets/Lista_ok.png'
 
 
 const Navbar = () => {
@@ -15,6 +16,7 @@ const Navbar = () => {
                     <a className="navbar__link" href="#">Estado del Producto</a>
                     <a className="navbar__link" href="#">Marca</a>
                     <a className="navbar__link" href="#">Precios</a>
+                    <img className='navbar__list' href="#" src={ lista } link rel="stylesheet" alt="Lista" />
                     <img className='navbar__car' href="#" src={ carrito } link rel="stylesheet" alt="Carrito" />
                 </nav>
             </div>
