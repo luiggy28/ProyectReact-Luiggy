@@ -1,5 +1,6 @@
 import logo from '../../assets/Logo_Final.png'
 import carrito from '../../assets/Carrito_ok.png'
+import NavLink from './NavLink'
 
 
 const Navbar = () => {
@@ -11,9 +12,11 @@ const Navbar = () => {
                 <img className="" src={ logo } alt="Logo" />
 
                 <nav className="flex gap-4">
-                    <a className="text-black hover:text-sky-800 text-lg uppercase font-semibold" href="#">Categoria</a>
-                    <a className="text-black hover:text-sky-800 text-lg uppercase font-semibold" href="#">Marca</a>
-                    <a className="text-black hover:text-sky-800 text-lg uppercase font-semibold" href="#">Precios</a>
+                    <NavLink href={"#"} text={"Estudio"}/>
+                    <NavLink href={"#"} text={"Micrófonos"}/>
+                    <NavLink href={"#"} text={"Percusión"}/>
+                    <NavLink href={"#"} text={"Guitarras"}/>
+                    <NavLink href={"#"} text={"Pianos"}/>
                     <img className='' href="#" src={ carrito } link rel="stylesheet" alt="Carrito" />
                 </nav>
             </div>

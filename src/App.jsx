@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <ItemListContainer />
     </>
-  )
-}
+  );
+};
 
 export default App
