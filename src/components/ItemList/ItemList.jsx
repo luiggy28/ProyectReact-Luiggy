@@ -1,3 +1,4 @@
+import ItemCard from "../ItemCard/ItemCard";
 
 
 const ItemList = ({productos}) => {
@@ -8,15 +9,7 @@ const ItemList = ({productos}) => {
             <hr />
 
             <div className="flex flex-wrap justify-between gap-10 items-center">
-                { productos.map ((item) => (
-                    <article key={item.id} className="w-80">
-                        <img src={item.img} alt={item.name} />
-                        <h3 className="text-2xl font-semibold">{item.name}</h3>
-                        <hr />
-                        <p>{item.description}</p>
-                        <p className="text-xl font-bold">Precio: {item.price}</p>
-                    </article>
-                ))}
+                { productos.map ((item) => <ItemCard key={item.id} item={item} />)}
             </div>
         </section>
     )
