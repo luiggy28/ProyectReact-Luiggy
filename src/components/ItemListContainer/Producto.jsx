@@ -1,4 +1,4 @@
-export const Producto = ({ nombre, valor, categoria }) => {
+/* export const Producto = ({ nombre, valor, categoria }) => {
 
     const valorEnCLP = valor.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
 
@@ -9,4 +9,4 @@ export const Producto = ({ nombre, valor, categoria }) => {
             <p>Categoria: { categoria }</p>
         </li>
     )
-}
+} */

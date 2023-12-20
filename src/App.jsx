@@ -1,5 +1,4 @@
 import './App.css'
-/* import './components/styles/styles.scss' */
 import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 

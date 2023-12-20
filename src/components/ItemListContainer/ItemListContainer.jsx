@@ -1,15 +1,22 @@
-import Productos from "./Productos"
-
+import { useState, useEffect } from "react"
+import { pedirDatos } from "../../utils/utils"
+import ItemList from "../ItemList/ItemList"
 
 
 const ItemListContainer = () => {
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+        pedirDatos()
+            .then((data) => {
+                setProductos( data )
+            })    
+    },  [])
 
     return (
-        <section className="list-container">
-            <h2 className="list-title">Productos</h2>
-            {/* <Productos /> */}
-            <hr />
-        </section>
+        <>
+        <ItemList productos={productos}/>
+        </>
     )
 }
 
