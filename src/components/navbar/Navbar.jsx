@@ -1,5 +1,5 @@
 import logo from '../../assets/Logo_Final.png'
-import NavLink from './NavLink'
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -11,12 +11,41 @@ const Navbar = () => {
                 <img className="" src={ logo } alt="Logo" />
 
                 <nav className="flex gap-4">
-                    <NavLink href={"#"} text={"Estudio"}/>
-                    <NavLink href={"#"} text={"Micrófonos"}/>
-                    <NavLink href={"#"} text={"Percusión"}/>
-                    <NavLink href={"#"} text={"Guitarras"}/>
-                    <NavLink href={"#"} text={"Pianos"}/>
-                    <NavLink href={"#"} text={"Vientos"}/>
+                    <Link 
+                    to={"/"} 
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Inicio</Link>
+
+                    <Link 
+                    to={"/productos/estudio"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Estudio</Link>
+
+                    <Link 
+                    to={"/productos/microfonos"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Micrófonos</Link>
+
+                    <Link 
+                    to={"/productos/percusion"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Percusión</Link>
+
+                    <Link 
+                    to={"/productos/cuerdas"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Cuerdas</Link>
+
+                    <Link 
+                    to={"/productos/pianos"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Pianos</Link>
+
+                    <Link 
+                    to={"/productos/vientos"}
+                    className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
+                    >Vientos</Link>
+                    
                 </nav>
 
                 {/* <CartWidget /> */}
