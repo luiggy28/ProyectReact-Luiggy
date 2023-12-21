@@ -3,6 +3,7 @@ import Boton from "../styles/Global/Boton";
 import QuantitySelector from "./QuantitySelector";
 
 
+
 const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(1)
     const [color, setColor] = useState(1)
@@ -41,9 +42,9 @@ const ItemDetail = ({item}) => {
                         <option>Custom</option>
                     </select>
 
+                {<Boton onClick={handleAgregar}>Agregar al carrito</Boton>}            
                 </div>
 
-            {<Boton onClick={handleAgregar}>Agregar al carrito</Boton>}            
             </div>
 
         </div>

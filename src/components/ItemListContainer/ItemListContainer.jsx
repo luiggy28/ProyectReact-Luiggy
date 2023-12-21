@@ -26,7 +26,7 @@ const ItemListContainer = () => {
                 setProductos( items )
             })    
             .finally(()=> setLoading( false ))
-    },  [])
+    },  [categoryId])
 
     /* return {
         productos,

@@ -22,7 +22,7 @@ const Navbar = () => {
                     >Estudio</Link>
 
                     <Link 
-                    to={"/productos/microfonos"}
+                    to={"/productos/microfono"}
                     className="text-black dark:text-white hover:text-sky-800 text-lg uppercase font-semibold"
                     >Micrófonos</Link>
 
