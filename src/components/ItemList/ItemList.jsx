@@ -1,14 +1,22 @@
 import ItemCard from "../ItemCard/ItemCard";
+import { useParams } from "react-router-dom";
 
 
 const ItemList = ({productos}) => {
+    const { categoryId } = useParams()
+    const capitalizarPalabras = (str) => {
+        return str.split(' ').map(palabra => 
+            palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase()
+        ).join(' ');
+    }
 
     return (
-        <section className="container max-w-7xl m-auto mt-8 items-center">
-            <h2 className="text-4xl font-bold">Productos</h2>
+        <section className="container m-auto mt-8">
+            <h2 className="text-4xl font-bold">
+            {!categoryId ? "Todos los productos" : capitalizarPalabras(categoryId)}</h2>
             <hr />
 
-            <div className="flex flex-wrap justify-between gap-10 items-center">
+            <div className="flex flex-wrap justify-between gap-10 items-stretch">
                 { productos.map ((item) => <ItemCard key={item.id} item={item} />)}
             </div>
         </section>

@@ -1,47 +1,49 @@
 import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
-import useProductos from "../../hooks/useProductos"
-import { pedirDatos } from "../../utils/utils"
-import { useParams } from "react-router-dom"
-
-
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ItemListContainer = () => {
-    /* const { productos, loading } = useProductos() */
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState (true)
+const [productos, setProductos] = useState([])
+const [loading, setLoading] = useState(true)
 
-    const{ categoryId } = useParams()
-    console.log(categoryId)
+const { categoryId } = useParams()
 
-    useEffect(() => {
-        setLoading(true)
+useEffect(() => {
+    setLoading(true)
 
-        pedirDatos()
-            .then((data) => {
-                const items = categoryId
-                                ? data.filter(prod => prod.category === categoryId)
-                                : data
+    const productosRef = collection(db, 'productos')
+    const docsRef = categoryId
+                        ? query( productosRef, where('category', '==', categoryId))
+                        : productosRef
 
-                setProductos( items )
-            })    
-            .finally(()=> setLoading( false ))
-    },  [categoryId])
-
-    /* return {
-        productos,
-        loading
-    } */
-
-    return (
-        <>
-            {
-                loading
-                    ? <h2 className="text-center text-4xl mt-8">Cargando...</h2>
-                    : <ItemList productos={productos}/>                    
+    getDocs(docsRef)
+        .then((querySnapshot) => {
+        const docs = querySnapshot.docs.map(doc => {
+            return {
+            ...doc.data(),
+            id: doc.id
             }
-        </>
-    )
-}
+        })
+        
+        console.log( docs )
+        setProductos( docs )
+        })
+        .finally(() => setLoading(false))
 
-export default ItemListContainer
+}, [categoryId])
+
+return (
+    <>
+    {
+        loading
+        ? <Loader/>
+        : <ItemList productos={productos}/>
+    }
+    </>
+)
+};
+
+export default ItemListContainer;
